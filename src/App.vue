@@ -1,28 +1,41 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+  
+  <div v-for="song in songs " :key="song.id">
+   
+    <div>
+      <p>歌曲名: {{song.name}}</p>
+      <img :src="song.al.picUrl" alt="">
+    </div>
+  </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import axios from 'axios'
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+mounted () {
+    axios
+      .get('http://127.0.0.1:3000/artist/top/song?id=6452')
+      .then(response => {
+        const {
+       data:{songs}
+        }=response
+        console.log(response.data.songs)
+
+        this.songs  = songs
+        })
+      
+  },
+  
+  data(){
+   return {
+     songs:[]
+   }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
