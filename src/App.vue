@@ -1,41 +1,19 @@
 <template>
   <div>
-  
-  <div v-for="song in songs " :key="song.id">
-   
-    <div>
-      <p>歌曲名: {{song.name}}</p>
-      <img :src="song.al.picUrl" alt="">
-    </div>
-  </div>
+    <Home></Home>
   </div>
 </template>
 
 <script>
-import axios from 'axios'
-export default {
-mounted () {
-    axios
-      .get('http://127.0.0.1:3000/artist/top/song?id=6452')
-      .then(response => {
-        const {
-       data:{songs}
-        }=response
-        console.log(response.data.songs)
+// import axios from "axios";
+import Home from "./pages/home";
+import "./styles/normalize.scss";
 
-        this.songs  = songs
-        })
-      
+export default {
+  components: {
+    Home,
   },
-  
-  data(){
-   return {
-     songs:[]
-   }
-  }
-}
+};
 </script>
 
-<style>
-
-</style>
+<style lang="scss"></style>
