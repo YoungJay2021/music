@@ -1,43 +1,30 @@
 <template>
-  <ul class="pop-wrapper" id="popsong-1">
-    <li v-for="song in songs.slice(0, 8)" :key="song.id" class="pop">
+  <ul class="pop-wrapper">
+    <li class="pop">
       <div class="pop-img">
-        <img :src="song.al.picUrl" alt="" />
+        <img src="../../assets/img/pop2.jpg" alt="" />
         <a href="#" class="pop-cover"></a>
         <div class="pop-bottom">
           <a href="#" class="icon-play"></a>
           <p class="headset"></p>
-          <p class="number">12233</p>
+          <p class="number">123万</p>
         </div>
       </div>
-      <a class="pop-name">{{ song.name }}</a>
+      <a class="pop-name">世界古典钢琴经典曲目收藏</a>
     </li>
+    <!-- <li class="pop"></li>
+    <li class="pop"></li>
+    <li class="pop"></li>
+    <li class="pop"></li>
+    <li class="pop"></li>
+    <li class="pop"></li>
+    <li class="pop"></li> -->
   </ul>
 </template>
 
 <script>
-// import Vue from "vue";
-import axios from "axios";
 export default {
   name: "SongOrder",
-  mounted() {
-    axios
-      .get("http://127.0.0.1:3000/artist/top/song?id=6452")
-      .then((response) => {
-        const {
-          data: { songs },
-        } = response;
-        console.log(response.data.songs);
-
-        this.songs = songs;
-      });
-  },
-
-  data() {
-    return {
-      songs: [],
-    };
-  },
 };
 </script>
 
@@ -48,7 +35,7 @@ $color-active: #fff;
   padding: 0;
   height: 468px;
   margin-top: 20px;
-
+  background-color: rgb(191, 232, 204);
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -57,10 +44,6 @@ $color-active: #fff;
   width: 140px;
   height: 188px;
   margin-bottom: 30px;
-  img {
-    width: 140px;
-    height: 140px;
-  }
 }
 .pop-img {
   width: 140px;

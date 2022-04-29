@@ -8,6 +8,8 @@
       <div class="mid-l">
         <MidNav />
         <SongOrder />
+        <MidNav />
+        <NewAlbum />
       </div>
       <div class="mid-r"></div>
     </div>
@@ -20,6 +22,7 @@ import SubNav from "../../components/subnav";
 import PageBanner from "../../components/banner";
 import MidNav from "../../components/mid-nav";
 import SongOrder from "../../components/songs-order";
+import NewAlbum from "../../components/album";
 // import HelloWorld from "../../components/swiper";
 export default {
   name: "IndexPage",
@@ -29,15 +32,13 @@ export default {
     PageBanner,
     MidNav,
     SongOrder,
+    NewAlbum,
     // HelloWorld,
   },
 };
 </script>
 
 <style lang="scss" scoped>
-// .mid-wrapper{
-
-// }
 .mid {
   display: flex;
   margin: 0 auto;
@@ -49,6 +50,7 @@ export default {
   height: 100%;
   box-sizing: border-box;
   padding: 20px 20px 40px;
+  border: 1px solid #666;
 }
 .mid-r {
   flex: 1;
